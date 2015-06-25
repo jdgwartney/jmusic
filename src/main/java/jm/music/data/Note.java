@@ -227,7 +227,7 @@ public class Note implements Cloneable, Serializable{
     /**
      * Assigns pitch and rhythmic values to the note object upon creation
      * Other values (e.g. dynamic) are given reasonable defaults
-     * @param MIDI pitch range is 0-127 (middle c = 60): Constant values
+     * @param pitch MIDI pitch range is 0-127 (middle c = 60): Constant values
      *              representing pitch values can be found in JMC
      * @param rhythmValue 0.5 = quaver: constant values representing most
      *                 duration types can be found in JMC
@@ -239,7 +239,7 @@ public class Note implements Cloneable, Serializable{
     /**
      * Assigns pitch and rhythmic values to the note object upon creation
      * Other values (e.g. dynamic) and given reasonable defaults
-     * @param MIDI pitch range is 0-127 (middle c = 60): Constant values
+     * @param pitch MIDI pitch range is 0-127 (middle c = 60): Constant values
      *              representing pitch values can be found in JMC
      * @param rhythmValue 0.5 = quaver: constant values representing most
      *                    duration types can be found in JMC
@@ -253,7 +253,7 @@ public class Note implements Cloneable, Serializable{
     /**
      * Assigns pitch and rhythmic values to the note object upon creation
      * Other values (e.g. dynamic) and given reasonable defaults
-     * @param MIDI pitch range is 0-127 (middle c = 60): Constant values
+     * @param pitch MIDI pitch range is 0-127 (middle c = 60): Constant values
      *              representing pitch values can be found in JMC
      * @param rhythmValue 0.5 = quaver: constant values representing most
      *                    duration types can be found in JMC
@@ -354,7 +354,7 @@ public class Note implements Cloneable, Serializable{
     /**
      * Specifies the note's pitch type.
      * There are constants for FREQUENCY and MIDI_PITCH
-     * @param boolean note's pitch type
+     * @param newType boolean note's pitch type
      */
     public void setPitchType(boolean newType){
         this.pitchType = newType;
@@ -379,7 +379,7 @@ public class Note implements Cloneable, Serializable{
      * Assign notes pitch as a frequency.  If the parameter <CODE>pitch</CODE> is less than
      * {@link #MIN_FREQUENCY} then the pitch of this note will be set to MIN_FREQUENCY.
      *
-     * @param double note pitch as a frequency in hertz
+     * @param freq double note pitch as a frequency in hertz
      */
     public void setFrequency(double freq){
         try {
@@ -419,7 +419,7 @@ public class Note implements Cloneable, Serializable{
      * Likewise, if <CODE>pitch</CODE> is greater than {@link #MAX_MIDI_PITCH},
      * pitch will be set to MAX_MIDI_PITCH.
      *
-     * @param int notes pitch
+     * @param pitch int notes pitch
      */
     public void setPitch(int pitch){
         if (pitch == REST)
@@ -448,7 +448,7 @@ public class Note implements Cloneable, Serializable{
 
     /**
      * Assign notes rhythmValue
-     * @param float notes rhythmValue
+     * @param rhythmValue float notes rhythmValue
      */
     public void setRhythmValue(double rhythmValue){
         this.rhythmValue = (rhythmValue < MIN_RHYTHM_VALUE)
@@ -468,7 +468,7 @@ public class Note implements Cloneable, Serializable{
 
     /**
      * Assign notes dynamic
-     * @param int notes dynamic
+     * @param dynamic int notes dynamic
      */
     public void setDynamic(int dynamic){
         this.dynamic = (dynamic < MIN_DYNAMIC)
@@ -486,7 +486,7 @@ public class Note implements Cloneable, Serializable{
 
     /**
      * Assign notes pan. 0.0 (full left) 0.5 (center) 1.0 (full right).
-     * @param double note's pan
+     * @param pan double note's pan
      */
     public void setPan(double pan){
         this.pan = (pan < MIN_PAN)
@@ -504,7 +504,7 @@ public class Note implements Cloneable, Serializable{
 
     /**
      * Set notes duration. 1.0 = Crotchet (Quater Note), 0.5 = Quaver (Eighth Note), etc...
-     * @param double note's duration
+     * @param duration double note's duration
      */
     public void setDuration(double duration){
         this.duration = (duration < MIN_DURATION)
@@ -524,7 +524,7 @@ public class Note implements Cloneable, Serializable{
     /**
      * Set notes offset.
      * The range is 0 = no change, positive number delay the note, negative values rush (advance) it
-     * @param double note's offset
+     * @param offset double note's offset
      */
     public void setOffset(double offset){
         this.offset = offset;
@@ -540,7 +540,7 @@ public class Note implements Cloneable, Serializable{
 
     /**
      * Set notes sampleStartTime
-     * @param int note's sampleStartTime
+     * @param sampleStartTime int note's sampleStartTime
      */
     public void setSampleStartTime(double sampleStartTime){
         this.sampleStartTime = sampleStartTime;
@@ -642,7 +642,7 @@ public class Note implements Cloneable, Serializable{
      * There are a number of scale constants specified in the JMC
      * which can be used with this method,
      * these include MAJOR_SCALE, MINOR_SCALE, and PENTATONIC_SCALE
-     * @param int[] - an array of scale degrees
+     * @param scale int[] - an array of scale degrees
      * @return boolean - true means it is in the scale
      */
     public boolean isScale(int[] scale) {
